@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> <!--skip-->
+        <title></title>
+
+        <!-- Prettify Code -->
+        <script type="text/javascript" src="js/prettify/jquery.min.js"></script>
+
+        <!--show-->
+        <!-- Assumes global locations for socket.io.js and easyrtc.js -->
+        <script src="/socket.io/socket.io.js"></script>
+        <script type="text/javascript" src="/easyrtc.js"></script>
+        <script type="text/javascript" src="static-chat.js"></script>
+        <link rel="stylesheet" href="css/iconfont.css">
+
+        <!--hide-->
+        <!-- Styles used within the demo -->
+        <style type="text/css">
+        body {
+            margin: 0px;
+            padding: 0px;
+            background-color: black;
+        }
+
+        #videocontainer {
+                width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+
+        }
+
+        #box0 {
+                width: 100%;
+    height: 100%;
+        }
+
+        #bars {
+            position:absolute;
+            left:0;
+            right:0;
+            bottom:0;
+        }
+
+        #videos{
+            display: flex;
+            margin-left: 30px;
+            margin-bottom: 10px;
+        }
+
+        .thumb {
+            box-shadow: 0 0 6px #1b1b1b;
+            object-fit: fill;
+            width: 100%;
+            height: 100%;
+        }
+
+        .thumbDiv{
+            width: 150px;
+            height: 150px;
+            background-color: black;
+            margin-right: 10px;
+            margin-left: 10px;
+            border: 3px solid white;
+        }
+
+        .selectedThumb {   
+            border: 5px solid yellow;
+        }
+
+        .videoMirror {
+-webkit-transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+        }
+                
+
+        #controls{
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #controlBar {
+            height: 85px;
+            background-color: rgba(27,27,27,0.5);
+        }
+
+        .icon {
+        }
+
+        .icon-hangup {
+            color:red;
+            font-size: 55px;
+            margin-left: 100px;
+            margin-right: 105px;
+        }
+
+        .icon-mute {
+            font-size: 53px;
+        }
+
+        .icon-unmute {
+            font-size: 53px;
+        }
+
+        .icon-selected {
+            color: yellow;
+        }
+
+        .icon-stopcamera {
+            font-size: 53px;
+        }
+
+        .icon-camera {
+            font-size: 53px;
+        }
+
+        .icon-switch {
+            font-size: 40px;
+        }
+
+        </style>
+        <!--show-->
+    </head>
+    <body onload="goconnect()">
+
+         <!--hide-->
+
+        <div>
+                
+            <div id="videocontainer">
+                <video id="box0"></video>
+                <div id="bars">
+                    <div id="videos">
+                    </div>
+                    <div id="controlBar">
+                    <div id="controls">
+                        <i class="icon iconfont icon-mute" onclick="muteOrUnmute(this)"></i>
+                        <i class="icon iconfont icon-hangup" onclick="hangup()"></i>
+                        <i class="icon iconfont icon-switch" onclick="swtichCamera(this)"></i>
+                    </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--show-->
+
+    </body>
+</html>
