@@ -230,7 +230,7 @@ function startCamera(source, streamName, callback) {
 function goconnect() {
     console.log("Initializing.");
     //var roomId = document.title;
-    easyrtc.setSocketUrl("120.24.55.35:8765",null);
+    easyrtc.setSocketUrl("http://120.24.55.35:8765",null);
     easyrtc.setAutoInitUserMedia(false);
     
     easyrtc.getVideoSourceList(function(videoSrcList) {
